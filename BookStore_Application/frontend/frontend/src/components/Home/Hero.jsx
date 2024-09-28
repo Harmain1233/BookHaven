@@ -1,15 +1,16 @@
 import React from 'react';
 import { Parallax } from 'react-parallax';
-import image1 from '/Users/harmainmunir/Desktop/BookHaven/BookStore_Application/frontend/frontend/public/images/image1.jpeg'; // Adjust path as needed
+import image1 from '/Users/harmainmunir/Desktop/BookHaven/BookStore_Application/frontend/frontend/public/images/bgimage2.jpg'; // Adjust path as needed
 
 const Hero = () => (
     <Parallax
-        blur={{ min: -15, max: 15 }}
         bgImage={image1}
         bgImageAlt="Library Interior"
-        strength={-300}
+        style={{
+             height: '75vh'
+        }}
     >
-        <div style={{ height: '400px', position: 'relative' }}>
+        <div style={{ height: '75vh', position: 'relative'}}>
             <div 
                 style={{
                     fontFamily: '"PT Serif", serif',
@@ -18,11 +19,12 @@ const Hero = () => (
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: 'rgba(0, 0, 0, 0.6)', // Dark overlay for better readability
                     display: 'flex',
-                    flexDirection: 'column', // Stack items vertically
-                    alignItems: 'center', // Center items horizontally
-                    justifyContent: 'center', // Center items vertically
+                    background: 'rgba(0, 0, 0, 0.8)', // Dark overlay for better readability
+
+                    flexDirection: 'column', // Stack items in banner vertically
+                    alignItems: 'center', // Center items in banner horizontally
+                    justifyContent: 'center', // Center items in banner vertically
                     textAlign: 'center',
                     padding: '20px',
                 }}
@@ -33,7 +35,7 @@ const Hero = () => (
                         fontFamily: '"PT Serif", serif',
                         margin: 0,
                         background: 'linear-gradient(to right, #FF7F50, #FFD700)', // More orangey gradient
-                        WebkitBackgroundClip: 'text', // Clip the background to the text
+                        WebkitBackgroundClip: 'text', // Clip the background to the textjcfg
                         WebkitTextFillColor: 'transparent', // Make text fill transparent
                         textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
                     }}
@@ -46,12 +48,9 @@ const Hero = () => (
                 </div>
                 <div style={{ marginTop: '20px' }}> {/* Add space above the button */}
                     <button 
- className="text-white 
- text-2xl font-semibold
-  rounded-lg py-2 px-4  
-  shadow-md border border-orange-400 hover:text-orange-400">
-                        Discover Books
-                    </button>
+        className="text-white text-2xl font-semibold rounded-lg py-2 px-4  shadow-md border border-orange-400 hover:text-orange-400">
+                Discover Books
+                 </button>
                 </div>
             </div>
         </div>
