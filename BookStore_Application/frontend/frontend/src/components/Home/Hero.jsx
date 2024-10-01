@@ -20,7 +20,7 @@ const Hero = () => (
                     right: 0,
                     bottom: 0,
                     display: 'flex',
-                    background: 'rgba(0, 0, 0, 0.8)', // Dark overlay for better readability
+                    background: 'rgba(0, 0, 0, 0.5)', // Dark overlay for better readability
 
                     flexDirection: 'column', // Stack items in banner vertically
                     alignItems: 'center', // Center items in banner horizontally

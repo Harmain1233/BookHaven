@@ -5,10 +5,9 @@ import { BookCover } from 'book-cover-3d'
 // Ensure to import Link from the correct library
 
 const BookCard = ({ data }) => {
-  console.log(data);
 
   return (
-    <Link to={data.url}>
+    <Link to={`/view-book-details/${data._id}`}>
      <BookCover
     rotate={20}
     shadowColor='rgba(255, 255, 255, 0.2)'

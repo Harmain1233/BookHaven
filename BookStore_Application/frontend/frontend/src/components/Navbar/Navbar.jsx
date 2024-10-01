@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
     const links = [
@@ -9,7 +10,16 @@ const Navbar = () => {
         { title: "Profile", link: "/profile" },
     ];
 
-    return (
+   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn );
+
+   if (isLoggedIn === false) {
+     links.splice(2,2);
+   }
+
+
+
+
+    return ( 
         <div className="flex bg-black text-white px-8 py-2 items-center justify-between border border-[#33353F] mx-auto z-10">
             <div className="flex items-center mt-3">
                 <Link 
@@ -43,7 +53,9 @@ const Navbar = () => {
                         {item.title}
                     </Link>
                 ))}
-                <Link 
+           {isLoggedIn === false && (
+            <>
+             <Link 
                     to="/Login" 
                     className="text-white bg-transparent border border-orange-400 py-1 px-4 rounded-lg font-semibold transition-colors duration-300 hover:bg-orange-400 hover:text-white"
                 >
@@ -51,10 +63,16 @@ const Navbar = () => {
                 </Link>
                 <Link 
                     to="/SignUp" 
-                    className="text-white bg-transparent border border-orange-400 py-1 px-4 rounded-lg font-semibold transition-colors duration-300 bg-orange-400 hover:text-white"
+                    className="text-white bg-orange-400 border border-orange-400 py-1 px-4 rounded-lg font-semibold transition-colors duration-300 hover:text-white"
                 >
                     Sign Up
                 </Link>
+            </>
+
+
+
+
+           )}
             </div>
         </div>
     );
