@@ -23,26 +23,41 @@ const handleChange = (e) => {
 };
 
 const Submit = async (e) => {
-    e.preventDefault(); // Prevents the form from refreshing the page
-    try {
-        if (formData.username === "" || formData.password === "") {
-            alert("All Fields Are Required");
-        } else {
-            dispatch(authActions.login());
-            dispatch(authActions.changeRole(response.data.role));
+  e.preventDefault(); // Prevents the form from refreshing the page
+  try {
+      // Check if formData fields are empty
+      if (formData.username === "" || formData.password === "") {
+          alert("All Fields Are Required");
+      } else {
+          // Make the API request before dispatching any actions
+          const response = await axios.post("http://localhost:1000/api/v1/sign-in", formData);
 
-            const response = await axios.post("http://localhost:1000/api/v1/sign-in", formData);
-            localStorage.setItem("id", response.data.id);
-            localStorage.setItem("token", response.data.token);
-            localStorage.setItem("role", response.data.role);
-            navigate("/profile");
-          }
+          // Dispatch actions and store values after a successful response
+          dispatch(authActions.login());
+          dispatch(authActions.changeRole(response.data.role));
 
-    } catch (error) {
-        alert(error.response.data.message); // Corrected error handling
-    }
-}
+          // Store the received data in localStorage
+          localStorage.setItem("id", response.data.id);
+          localStorage.setItem("token", response.data.token);
+          localStorage.setItem("role", response.data.role);
 
+          // Navigate to profile
+          navigate("/profile");
+      }
+  } catch (error) {
+      // Handle different error cases gracefully
+      if (error.response) {
+          // If the error has a response from the server
+          alert(error.response.data.message);
+      } else if (error.request) {
+          // The request was made but no response was received
+          alert("No response from the server. Please try again later.");
+      } else {
+          // Other errors, such as in setting up the request
+          alert(`Error: ${error.message}`);
+      }
+  }
+};
     return (
         <div
         className="flex items-center justify-center min-h-screen"
