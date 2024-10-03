@@ -8,7 +8,7 @@ const user = require("../models/user");
 // Sign Up
 router.post("/sign-up", async (req, res) => {
    try{
-    const {username, email, password, address} = req.body;
+    const {username, email, password } = req.body;
 
     // check if username  length is more than 4  
     if(username.length < 4) {
@@ -53,13 +53,12 @@ router.post("/sign-up", async (req, res) => {
             username: username,
              email: email, 
              password: hashPass,
-              address: address
 
         }
     );
   
     await newUser.save();
-    return res.status(200).json({message: "Sign Up Succesful"});
+    return res.status(200).json({message: "Sign Up Was Successful!"});
 
 
    } catch(error) {
@@ -123,17 +122,6 @@ router.get("/get-user-information",authenticateToken, async (req, res) => {
 });
 
 
-// update address
-router.put("/update-address", authenticateToken, async (req, res) => {
-  try{
-    const { id } = req.headers;
-    const { address } = req.body;
-    await User.findByIdAndUpdate(id, {address: address});
-    return res.status(200).json({message: "Address updated successfully"});
-  } catch(error) {
 
-  }
-  
-})
 
 module.exports = router;

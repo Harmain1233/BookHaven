@@ -16,14 +16,10 @@ const user = new mongoose.Schema({
         required:true,
 
     },
-    address: {
-        type: String, 
-        required:true,
-    },
 
     avatar: {
         type: String,
-        default: "https://cdn-icons-png.flaticon.com/128/3177440.png"
+        default: "default_avatar"
     },
     role: {
         type: String, 
