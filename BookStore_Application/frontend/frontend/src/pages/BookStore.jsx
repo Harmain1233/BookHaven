@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import StoreCard from '../components/BookCard/StoreCard';
-import image1 from '/Users/harmainmunir/Desktop/BookHaven/BookStore_Application/frontend/frontend/public/images/bgimage2.jpg'; // Adjust path as needed
+import image1 from '/Users/harmainmunir/Desktop/BookHaven/BookStore_Application/frontend/frontend/public/images/image5.jpg'; // Adjust path as needed
 
 
 const BookStore = () => {

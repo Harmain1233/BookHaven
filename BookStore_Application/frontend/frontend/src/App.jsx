@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Home/Footer";
 import { Routes, Route } from 'react-router-dom';
@@ -9,8 +9,29 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import './App.css';
 import ViewBookDetails from "./components/ViewBookDetails/ViewBookDetails";
+import {useDispatch, useSelector } from "react-redux";
+import { authActions } from "./store/auth";
+
+
+
+
 
 function App() {
+
+  const dispatch = useDispatch();
+  const role = useSelector((state) => state.auth.role);
+  useEffect(() => {
+       if(
+        localStorage.getItem("id") &&
+        localStorage.getItem("token") && 
+        localStorage.getItem("role") 
+        ) {
+        dispatch(authActions.login());
+        dispatch(authActions.changeRole(localStorage.getItem(role)));
+       }
+  
+  }, [])
+  
   return (
     <div>  
          <Navbar />   
