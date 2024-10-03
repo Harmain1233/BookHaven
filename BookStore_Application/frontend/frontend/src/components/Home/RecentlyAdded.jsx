@@ -17,7 +17,7 @@ const RecentlyAdded = () => {
 
 
   return (
-    <div className="mt-8 px-12">
+    <div className="px-12">
       <h4 className='text-4xl text-center mb-5 mt-20'>Our Best Picks</h4>
       
       
