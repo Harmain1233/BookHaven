@@ -14,6 +14,7 @@ import { authActions } from "./store/auth";
 import Favorites from "./components/Profile/Favorites";
 import UserOrderHistory from "./components/Profile/UserOrderHistory";
 import Settings from "./components/Profile/Settings";
+import Cart from "./pages/Cart";
 
 
 
@@ -45,8 +46,8 @@ function App() {
             <Route index element={<Favorites />} />
             <Route path="/profile/orderHistory" element={<UserOrderHistory />} />
             <Route path="/profile/settings" element={<Settings />} />
-
             </Route>
+          <Route path="/cart" element= {<Cart />} />
            <Route path="/signup" element={<SignUp />} /> 
            <Route path="/login" element={<Login />} /> 
            <Route path= "view-book-details/:id" element={ <ViewBookDetails />}/>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import FavoriteCard from "../BookCard/FavoriteCard";
+import catImg from "/Users/harmainmunir/Desktop/BookHaven/BookStore_Application/frontend/frontend/public/images/catimg_transp.png";
 
 const Favorites = () => {
     const [FavoriteBooks, setFavoriteBooks] = useState([]); // Initialize as an empty array
@@ -28,6 +29,18 @@ const Favorites = () => {
 
     return (
         <div className="grid grid-cols-4 gap-5 ml-6">
+
+{FavoriteBooks.length === 0 && (
+    <div className="col-span-4 flex justify-center items-center relative h-[500px]">
+        <img src={catImg} alt="No favorite books found" className="w-90 h-50 object-contain" />
+        <p className="absolute top-1/2 transform -translate-y-1/2 text-white text-xl font-bold">
+            No Books Added To Favorites
+        </p>
+    </div>
+)}
+
+
+
             {FavoriteBooks && 
                 FavoriteBooks.map((item) => ( // Corrected variable name
                     <div key={item.id}> 
