@@ -6,7 +6,7 @@ const Navbar = () => {
     const links = [
         { title: "Home", link: "/" },
         { title: "Shop", link: "/BookStore" }, // Ensure this matches your route
-        { title: "Cart", link: "/cart" },
+        { title: "Cart", link: "/Cart" },
         { title: "Profile", link: "/profile" },
     ];
 
