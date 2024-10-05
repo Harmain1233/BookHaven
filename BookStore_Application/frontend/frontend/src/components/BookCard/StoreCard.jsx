@@ -20,8 +20,8 @@ const StoreCard = ({ data }) => {
       
       {/* Title and Price */}
       <div className="mt-4 text-center h-[20px]">
-        <h1 className="text-sm font-bold whitespace-wrap">{data.title}</h1>
-        <h1 className="text-xl text-white font-bold mt-1">{data.price} USD</h1>
+      <h1 className="text-lg font-bold text-white">{data.title}</h1>
+      <h1 className="text-md text-gray-400 font-semibold mt-1">{data.price} USD</h1>
       </div>
   
       {/* Spacer to push buttons down */}
