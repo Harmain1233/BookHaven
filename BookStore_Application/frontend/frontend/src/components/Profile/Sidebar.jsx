@@ -1,5 +1,5 @@
 import React from 'react';
-import userImage from "/Users/harmainmunir/Desktop/BookHaven/BookStore_Application/frontend/frontend/public/images/usericon.png"; 
+import userImage from "/images/usericon.png"; 
 import { Link } from 'react-router-dom';
 
 
@@ -28,11 +28,7 @@ const Sidebar = ({ data }) => {
            >
             Favorites
            </Link>
-           <Link to="/profile/orderHistory"
-           className='text-zinc-100 font-semibold w-full py-2 mt-4 text-center hover:bg-zinc-900 rounded transition-all duration-300'
-           >
-            Order History
-           </Link>
+           
            <Link to="/profile/settings"
            className='text-zinc-100 font-semibold w-full py-2 mt-4 text-center hover:bg-zinc-900 rounded transition-all duration-300'
            >

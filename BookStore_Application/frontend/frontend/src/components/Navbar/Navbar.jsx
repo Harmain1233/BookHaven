@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link
 import { useSelector } from "react-redux";
+import { GiBookmarklet } from "react-icons/gi";
+
+
+
 
 const Navbar = () => {
     const links = [
@@ -36,7 +40,15 @@ const Navbar = () => {
                         textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
                     }}
                 > 
-                    BookHaven
+                <GiBookmarklet 
+                 style={{ 
+                    color: 'white', 
+                    fontSize: '2rem', 
+                    margin: '10px' 
+                 }}
+                />    BookHaven 
+
+
                 </Link>
             </div>
             <div className="nav-links-bookhaven flex items-center gap-6 pt-serif-regular mt-3">

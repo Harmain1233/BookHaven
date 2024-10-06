@@ -7,7 +7,7 @@ const StoreCard = ({ data }) => {
   return (
 <Link to={`/view-book-details/${data._id}`}>
   <div className="flex justify-center">
-    <div className="relative border-2 border-white-50 rounded-xl p-4 flex flex-col h-[400px] w-[20vw] mb-9 overflow-hidden backdrop-blur-sm bg-white-10 shadow-lg transition-transform transform hover:scale-105">
+    <div className="relative border border-orange-400  rounded-xl p-4 flex flex-col h-[400px] w-[20vw] mb-9 overflow-hidden backdrop-blur-sm bg-white-10 shadow-lg transition-transform transform hover:scale-105">
       
       {/* Image Section */}
       <div className="flex justify-center items-center h-[60%]"> {/* Fixed height for image section */}
@@ -29,13 +29,13 @@ const StoreCard = ({ data }) => {
   
       {/* Buttons */}
       <div className="flex justify-center gap-2 mt-4">
-        <button className="text-white text-sm font-medium rounded-full w-10 h-10 flex items-center justify-center bg-transparent border border-white shadow-md transition-colors duration-300 ease-in-out hover:bg-black">
+        <button className="text-white text-sm font-medium rounded-full w-10 h-10 flex items-center justify-center bg-transparent border border-orange-400 shadow-md transition-colors duration-300 ease-in-out hover:bg-black">
           <FaShoppingCart className="w-4 h-4" />
         </button>
-        <button className="text-white text-sm font-medium rounded-full w-10 h-10 flex items-center justify-center bg-transparent border border-white shadow-md transition-colors duration-300 ease-in-out hover:bg-black">
+        <button className="text-white text-sm font-medium rounded-full w-10 h-10 flex items-center justify-center bg-transparent border border-orange-400 shadow-md transition-colors duration-300 ease-in-out hover:bg-black">
           <FaEye className="w-4 h-4" />
         </button>
-        <button className="text-white text-sm font-medium rounded-full w-10 h-10 flex items-center justify-center bg-transparent border border-white shadow-md transition-colors duration-300 ease-in-out hover:bg-black">
+        <button className="text-white text-sm font-medium rounded-full w-10 h-10 flex items-center justify-center bg-transparent border border border-orange-400 shadow-md transition-colors duration-300 ease-in-out hover:bg-black">
           <FaHeart className="w-4 h-4" />
         </button>
       </div>

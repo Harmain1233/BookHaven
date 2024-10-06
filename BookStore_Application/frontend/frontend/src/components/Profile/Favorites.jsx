@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import FavoriteCard from "../BookCard/FavoriteCard";
-import catImg from "/Users/harmainmunir/Desktop/BookHaven/BookStore_Application/frontend/frontend/public/images/catimg_transp.png";
+import catImg from "/images/catimg_transp.png";
+
 
 const Favorites = () => {
     const [FavoriteBooks, setFavoriteBooks] = useState([]); // Initialize as an empty array
