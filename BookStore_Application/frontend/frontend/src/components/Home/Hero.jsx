@@ -1,6 +1,7 @@
 import React from 'react';
 import { Parallax } from 'react-parallax';
-import image1 from '/Users/harmainmunir/Desktop/BookHaven/BookStore_Application/frontend/frontend/public/images/bgimage2.jpg'; // Adjust path as needed
+import { Link } from 'react-router-dom'; // Added import for Link
+import image1 from '/images/imagebgcouch.jpg'; // Ensure correct path
 
 const Hero = () => (
     <Parallax
@@ -20,11 +21,11 @@ const Hero = () => (
                     right: 0,
                     bottom: 0,
                     display: 'flex',
-                    background: 'rgba(0, 0, 0, 0.5)', // Dark overlay for better readability
+                    background: 'rgba(0, 0, 0, 0.5)',
 
-                    flexDirection: 'column', // Stack items in banner vertically
-                    alignItems: 'center', // Center items in banner horizontally
-                    justifyContent: 'center', // Center items in banner vertically
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     textAlign: 'center',
                     padding: '20px',
                 }}
@@ -34,9 +35,9 @@ const Hero = () => (
                         fontSize: '48px',
                         fontFamily: '"PT Serif", serif',
                         margin: 0,
-                        background: 'linear-gradient(to right, #FF7F50, #FFD700)', // More orangey gradient
-                        WebkitBackgroundClip: 'text', // Clip the background to the textjcfg
-                        WebkitTextFillColor: 'transparent', // Make text fill transparent
+                        background: 'linear-gradient(to right, #FF7F50, #FFD700)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
                         textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
                     }}
                 >
@@ -46,11 +47,13 @@ const Hero = () => (
                     <p style={{ margin: '0 0 11px 0' }}>Dive into a world of stories and adventures.</p>
                     <p style={{ margin: '0', whiteSpace: 'nowrap' }}>Explore our vast collection and find your next favorite read!</p>
                 </div>
-                <div style={{ marginTop: '20px' }}> {/* Add space above the button */}
-                    <button 
-        className="text-white text-2xl font-semibold rounded-lg py-2 px-4  shadow-md border border-orange-400 hover:text-orange-400">
-                Discover Books
-                 </button>
+                <div style={{ marginTop: '20px' }}>
+                    <Link to="/BookStore"> {/* Correct link to BookStore page */}
+                        <button 
+                            className="text-white text-2xl font-semibold rounded-lg py-2 px-4 shadow-md border border-orange-400 hover:text-orange-400">
+                            Discover Books
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>

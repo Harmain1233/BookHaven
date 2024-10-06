@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import image1 from '/Users/harmainmunir/Desktop/BookHaven/BookStore_Application/frontend/frontend/public/images/imagebgcouch.jpg'; // Adjust path as needed
+import image1 from '/images/imagebgcouch.jpg'; // Adjust path as needed
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
@@ -41,7 +41,7 @@ const SignUp = () => {
                 backgroundPosition: 'center',
             }}
         >
-            <div className="bg-transparent border-2 bg-blur white rounded-lg shadow-lg p-8 w-96 bg-opacity-90 backdrop-blur-sm">
+            <div className="bg-black border-2 bg-blur white rounded-lg shadow-lg p-8 w-96 bg-opacity-90 backdrop-blur-sm">
                 <h2 className="text-2xl font-bold text-center text-white">Sign Up</h2>
                 <form onSubmit={Submit}> {/* Use onSubmit for the form */}
                     <div className="mb-4">
@@ -88,7 +88,7 @@ const SignUp = () => {
                     </div>
                     <button
                         type="submit" // Changed to submit button
-                        className="w-full bg-black hover:text-yellow-500 text-white font-semibold py-2 px-4 rounded-md transition duration-300"
+                        className="w-full bg-orange-400 hover:text-yellow-500 text-white font-semibold py-2 px-4 rounded-md transition duration-300"
                     >
                         Sign Up
                     </button>

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import image1 from '/Users/harmainmunir/Desktop/BookHaven/BookStore_Application/frontend/frontend/public/images/imagebgcouch.jpg';
 import  { authActions } from "../store/auth";
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import image1 from '/images/imagebgcouch.jpg';
+
 
 
 
@@ -67,7 +68,7 @@ const Submit = async (e) => {
           backgroundPosition: 'center', // Centers the image
         }}
       >
-        <div className="bg-transparent border-2 bg-blur white rounded-lg shadow-lg p-8 w-96 bg-opacity-90 backdrop-blur-sm">
+        <div className="bg-black border-2 bg-blur white rounded-lg shadow-lg p-8 w-96 bg-opacity-90 backdrop-blur-sm">
           <h2 className="text-2xl font-bold text-center text-white">Login</h2>
           <form onSubmit={Submit}>
             <div className="mb-4">
@@ -101,7 +102,7 @@ const Submit = async (e) => {
             </div>
             <button
               type="submit"
-              className="w-full bg-black hover:text-yellow-500 text-white font-semibold py-2 px-4 rounded-md transition duration-300"
+              className="w-full bg-orange-400 hover:text-yellow-500 text-white font-semibold py-2 px-4 rounded-md transition duration-300"
             >
               Login
             </button>
