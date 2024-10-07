@@ -27,75 +27,107 @@ const SignUp = () => {
                 alert(response.data.message);
                 navigate("/LogIn");
             }
-        } catch (err) {
-          alert(error.response.data.message); // Corrected error handling
+        } catch (error) {
+            if (error.response) {
+                alert(error.response.data.message);
+            } else if (error.request) {
+                alert("No response from the server. Please try again later.");
+            } else {
+                alert(`Error: ${error.message}`);
+            }
         }
-    }
+    };
 
     return (
         <div
-            className="flex items-center justify-center min-h-screen"
+            className=""
             style={{
                 backgroundImage: `url(${image1})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
+                backgroundBlendMode: 'overlay',
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
             }}
         >
-            <div className="bg-black border-2 bg-blur white rounded-lg shadow-lg p-8 w-96 bg-opacity-90 backdrop-blur-sm">
-                <h2 className="text-2xl font-bold text-center text-white">Sign Up</h2>
-                <form onSubmit={Submit}> {/* Use onSubmit for the form */}
-                    <div className="mb-4">
-                        <label htmlFor="username" className="block text-sm font-medium text-white">
-                            Username
-                        </label>
-                        <input
-                            type="text"
-                            id="username"
-                            name="username"
-                            value={formData.username}
-                            onChange={handleChange}
-                            required
-                            className="mt-1 block w-full border border-gray-300 rounded-2xl shadow-sm p-2 bg-transparent"
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label htmlFor="email" className="block text-sm font-medium text-white">
-                            Email
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                            className="mt-1 block w-full border border-gray-300 shadow-sm p-2 text-white bg-transparent rounded-2xl"
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label htmlFor="password" className="block font-medium text-white">
-                            Password
-                        </label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            required
-                            className="mt-1 block w-full border border-gray-300 shadow-sm p-2 text-white bg-transparent rounded-2xl"
-                        />
-                    </div>
-                    <button
-                        type="submit" // Changed to submit button
-                        className="w-full bg-orange-400 hover:text-yellow-500 text-white font-semibold py-2 px-4 rounded-md transition duration-300"
-                    >
+            <div className="flex items-center justify-center min-h-screen">
+                <div className="bg-black bg-opacity-80 border border-orange-500 w-4/5 max-w-2xl rounded-lg shadow-xl p-6 flex flex-col items-center justify-center backdrop-blur-lg max-h-[90vh]">
+                    <h2 className="text-2xl font-bold text-center text-white mb-6">
                         Sign Up
-                    </button>
-                </form>
-                <p className="mt-4 text-center text-white">
-                    Already have an account? <a href="/login" className="text-yellow-500 hover:underline">Log in</a>
-                </p>
+                    </h2>
+
+                    <form onSubmit={Submit} className="w-full">
+                        <div className="mb-5">
+                            <label
+                                htmlFor="username"
+                                className="block text-sm font-medium text-white mb-2"
+                            >
+                                Username
+                            </label>
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                placeholder="Enter Your Username"
+                                value={formData.username}
+                                onChange={handleChange}
+                                required
+                                className="w-full p-3 rounded-lg border border-gray-300 focus:ring focus:ring-amber-300 bg-gray-200 text-gray-700"
+                            />
+                        </div>
+
+                        <div className="mb-5">
+                            <label
+                                htmlFor="email"
+                                className="block text-sm font-medium text-white mb-2"
+                            >
+                                Email
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter Your Email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                required
+                                className="w-full p-3 rounded-lg border border-gray-300 focus:ring focus:ring-amber-300 bg-gray-200 text-gray-700"
+                            />
+                        </div>
+
+                        <div className="mb-6">
+                            <label
+                                htmlFor="password"
+                                className="block text-sm font-medium text-white mb-2"
+                            >
+                                Password
+                            </label>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter Your Password"
+                                value={formData.password}
+                                onChange={handleChange}
+                                required
+                                className="w-full p-3 rounded-lg border border-gray-300 focus:ring focus:ring-amber-300 bg-gray-200 text-gray-700"
+                            />
+                        </div>
+
+                        <button
+                            type="submit"
+                            className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 rounded-lg transition-all duration-300 shadow-lg"
+                        >
+                            Sign Up
+                        </button>
+                    </form>
+
+                    <p className="mt-6 text-center text-gray-300">
+                        Already have an account?{' '}
+                        <a href="/LogIn" className="text-amber-400 hover:text-amber-500">
+                            Log in
+                        </a>
+                    </p>
+                </div>
             </div>
         </div>
     );

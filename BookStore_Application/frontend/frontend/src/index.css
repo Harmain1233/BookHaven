@@ -2,25 +2,21 @@
 
 .pt-serif-regular {
     font-family: "PT Serif", serif;
-    font-weight: 400;
     font-style: normal;
   }
   
   .pt-serif-bold {
     font-family: "PT Serif", serif;
-    font-weight: 700;
     font-style: normal;
   }
   
   .pt-serif-regular-italic {
     font-family: "PT Serif", serif;
-    font-weight: 400;
     font-style: italic;
   }
   
   .pt-serif-bold-italic {
     font-family: "PT Serif", serif;
-    font-weight: 700;
     font-style: italic;
   }
   
@@ -29,13 +25,11 @@
 
 body {
   font-family: 'PT Serif', serif; /* Set your desired font family */
-  font-weight: 300; /* Change to your desired font weight */
   color: #FFFFFF; /* Set a default text color */
   background-color: #000000; /* Optional: Set a default background color */
 }
 
 h1, h2, h3, h4, h5, h6, p, a {
-  font-weight: 300; /* Adjust as necessary */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional: Add text shadow */
 }
 

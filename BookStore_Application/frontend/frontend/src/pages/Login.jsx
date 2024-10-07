@@ -60,58 +60,85 @@ const Submit = async (e) => {
   }
 };
     return (
-        <div
-        className="flex items-center justify-center min-h-screen"
-        style={{
-          backgroundImage: `url(${image1})`,
-          backgroundSize: 'cover', // Ensures the image covers the div properly
-          backgroundPosition: 'center', // Centers the image
-        }}
-      >
-        <div className="bg-black border-2 bg-blur white rounded-lg shadow-lg p-8 w-96 bg-opacity-90 backdrop-blur-sm">
-          <h2 className="text-2xl font-bold text-center text-white">Login</h2>
-          <form onSubmit={Submit}>
-            <div className="mb-4">
-              <label htmlFor="username" className="block text-sm font-medium text-white">
-                Username
-              </label>
-              <input
-                type="text"
-                id="username"
-                name="username"
-                value={formData.username}
-                onChange={handleChange}
-                required
-                className="mt-1 block w-full border border-gray-300 rounded-2xl shadow-sm p-2 bg-transparent"
-              />
-            </div>
-            
-            <div className="mb-4">
-              <label htmlFor="password" className="block font-medium text-white">
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-                className="mt-1 block w-full border border-gray-300 shadow-sm p-2 text-white bg-transparent rounded-2xl"
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-orange-400 hover:text-yellow-500 text-white font-semibold py-2 px-4 rounded-md transition duration-300"
+      <div
+         className=""
+      style={{
+        backgroundImage: `url(${image1})`,
+        backgroundSize: 'cover', // Ensures the image covers the div properly
+        backgroundPosition: 'center', // Centers the image
+        backgroundBlendMode: 'overlay', // Adds a dark overlay to improve text readability
+        backgroundColor: 'rgba(0, 0, 0, 0.5)', // The actual overlay color
+      }}
+    >
+              <div
+      className="flex items-center justify-center min-h-screen"
+     
+    >
+      <div className="bg-black bg-opacity-80 border border-orange-500 w-4/5 max-w-2xl rounded-lg shadow-xl p-6 flex flex-col items-center justify-center backdrop-blur-lg max-h-[90vh]">
+       
+    
+        <h2 className="text-2xl font-bold text-center text-white mb-6">
+          Login To Your Account!
+        </h2>
+    
+        <form onSubmit={Submit} className="w-full">
+          <div className="mb-5">
+            <label
+              htmlFor="username"
+              className="block text-sm font-medium text-white mb-2"
             >
-              Login
-            </button>
-          </form>
-          <p className="mt-4 text-center text-white">
-            Don't have an account? <Link to="/login" className="text-yellow-500 hover:underline">Sign Up</Link>
-          </p>
-        </div>
+              Username
+            </label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Enter Your Username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+              className="w-full p-3 rounded-lg border border-gray-300 focus:ring focus:ring-amber-300 bg-gray-200 text-gray-700"
+            />
+          </div>
+    
+          <div className="mb-6">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-white mb-2"
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter Your Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              className="w-full p-3 rounded-lg border border-gray-300 focus:ring focus:ring-amber-300 bg-gray-200 text-gray-700"
+            />
+          </div>
+    
+          <button
+            type="submit"
+            className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 rounded-lg transition-all duration-300 shadow-lg"
+          >
+            Login
+          </button>
+        </form>
+    
+        <p className="mt-6 text-center text-gray-300">
+          Don't have an account?{' '}
+          <Link to="/SignUp" className="text-amber-400 hover:text-amber-500">
+            Sign Up
+          </Link>
+        </p>
       </div>
+    </div>
+    </div>
+
+    
       
     );
 };
