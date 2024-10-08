@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { BookCover } from "book-cover-3d";
 import { useSelector, useDispatch } from "react-redux";
-import  { authActions } from "/Users/harmainmunir/Desktop/Master_BookHaven/BookHaven/BookStore_Application/frontend/frontend/src/store/auth.js";
+import { authActions } from "../../store/auth.js";
+
 
 
 const ViewBookDetails = () => {
