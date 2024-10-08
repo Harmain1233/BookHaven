@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { BookCover } from "book-cover-3d";
 import { useSelector, useDispatch } from "react-redux";
-import  { authActions } from "/Users/harmainmunir/Desktop/BookHaven/BookStore_Application/frontend/frontend/src/store/auth";
+import  { authActions } from "/Users/harmainmunir/Desktop/Master_BookHaven/BookHaven/BookStore_Application/frontend/frontend/src/store/auth.js";
 
 
 const ViewBookDetails = () => {
@@ -32,7 +32,7 @@ const ViewBookDetails = () => {
     const fetch = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:1000/api/v1/get-book-by-id/${id}`
+          `${import.meta.env.VITE_API_URL}/api/v1/get-book-by-id/${id}`
         );
         setData(response.data.data);
       } catch (error) {
@@ -58,7 +58,7 @@ const ViewBookDetails = () => {
 
   const handleFavorites = async () => {
     const response = await axios.put(
-      "http://localhost:1000/api/v1/add-book-to-favorite", 
+      `${import.meta.env.VITE_API_URL}/api/v1/add-book-to-favorite`, 
       {}, 
       { headers }
     );
@@ -67,7 +67,7 @@ const ViewBookDetails = () => {
 
   const handleCart = async () => {
     const response = await axios.put(
-      "http://localhost:1000/api/v1/add-to-cart", 
+      `${import.meta.env.VITE_API_URL}/api/v1/add-to-cart`, 
       {}, 
       { headers }
     );

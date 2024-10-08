@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import StoreCard from '../components/BookCard/StoreCard';
-import image1 from '/Users/harmainmunir/Desktop/BookHaven/BookStore_Application/frontend/frontend/public/images/image5.jpg'; // Adjust path as needed
+import image1 from '/images/image5.jpg'; 
 
 
 const BookStore = () => {
@@ -9,9 +9,10 @@ const BookStore = () => {
 
 
     useEffect(() => {
+
       const fetch = async() => {
         const response =  await axios.get(
-          "http://localhost:1000/api/v1/get-all-books"
+          `${import.meta.env.VITE_API_URL}/api/v1/get-all-books`
         );
         setData(response.data.data);
       };

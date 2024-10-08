@@ -31,7 +31,7 @@ const Submit = async (e) => {
           alert("All Fields Are Required");
       } else {
           // Make the API request before dispatching any actions
-          const response = await axios.post("http://localhost:1000/api/v1/sign-in", formData);
+          const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/sign-in`, formData);
 
           // Dispatch actions and store values after a successful response
           dispatch(authActions.login());
