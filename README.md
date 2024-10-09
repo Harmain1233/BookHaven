@@ -1,8 +1,8 @@
 # BookHaven
 
-Check out the live version of the application: [bookhaven-frontend.onrender.com](https://bookhaven-frontend.onrender.com/)
+Try out the live application: [bookhaven-frontend.onrender.com](https://bookhaven-frontend.onrender.com/)
 
-Check out the live version of the application: [Check Out A Live Demo](https://www.youtube.com/watch?v=o9VzrJ9Va8s)
+View out the live demo of the application: [Check Out A Live Demo](https://www.youtube.com/watch?v=o9VzrJ9Va8s)
 
 
 <img width="1424" alt="Screenshot 2024-10-09 at 1 08 03 PM" src="https://github.com/user-attachments/assets/7e367dcc-7f96-4f44-a146-58bfa96cb4e7">
