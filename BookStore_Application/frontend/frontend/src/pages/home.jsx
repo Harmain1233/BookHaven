@@ -14,7 +14,7 @@ const Home = () => {
       <div className="py-8"> {/* Add vertical padding */}
         <MainContent className="min-h-[300px]" /> {/* Ensure this has a min-height */}
       </div>
-      <div>
+      <div className="mb-20">
         <HearFromCustomers />
       </div>
     </div>

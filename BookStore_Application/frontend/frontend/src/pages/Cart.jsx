@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios"; 
 import { useNavigate } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for toast notifications
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -28,23 +30,36 @@ const Cart = () => {
   }, []); 
 
   const handleDelete = async (bookid) => {
-    const response = await axios.put(`${import.meta.env.VITE_API_URL}/api/v1/remove-from-cart/${bookid}`, {}, { headers });
-    alert(response.data.message);
-    fetch();
+    try {
+      const response = await axios.put(`${import.meta.env.VITE_API_URL}/api/v1/remove-from-cart/${bookid}`, {}, { headers });
+      toast.success(response.data.message); // Use toast for success message
+  
+      // Update the Cart state by filtering out the removed item
+      setCart((prevCart) => prevCart.filter(item => item._id !== bookid));
+      
+      // Update the total (assuming the response contains the price of the removed item)
+      setTotal(prevTotal => prevTotal - response.data.price); 
+  
+    } catch (error) {
+      toast.error("Failed to remove item from cart."); // Use toast for error message
+      console.error(error);
+    }
   }
+  
 
   const PlaceOrder = async () => {
     try {
       const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/place-order`, { order: Cart }, { headers }); 
-      alert(response.data.message);
-      navigate("/profile/orderHistory");
+      toast.success(response.data.message); // Use toast for success message
     } catch (error) {
+      toast.error("Failed to place order."); // Use toast for error message
       console.log(error); 
     }
   }
 
   return (
     <>
+      <ToastContainer /> {/* Include ToastContainer here */}
       {Cart.length === 0 ? (
         <div className="h-screen flex items-center justify-center flex-col">
           <h1 className="text-5xl lg:text-6xl font-semibold text-zinc-400">
@@ -86,23 +101,22 @@ const Cart = () => {
               </div>
             ))}
           </div>
-    <div className="w-1/2 p-4 rounded-lg flex flex-col items-center justify-center bg">
-    <div className='border border-white p-5 rounded-lg'>
-    <h1 className="text-3xl text-white font-semibold">Total Amount</h1>
-      <div className="mt-3 flex flex-col items-center justify-between text-xl text-white">
-        <h2>{Cart.length} books</h2>
-        <h2>${Total.toFixed(2)}</h2>
-      </div>
-      <button 
-        className="mt-4 text-white text-xl font-semibold rounded-lg py-2 px-4 bg-orange-400 hover:bg-orange-500 shadow-md transition duration-200"
-        onClick={PlaceOrder}
-      >
-        Place Your Order
-      </button>
-    </div>
-     
-    </div>
-</div>
+          <div className="w-1/2 p-4 rounded-lg flex flex-col items-center justify-center bg">
+            <div className='border border-white p-5 rounded-lg'>
+              <h1 className="text-3xl text-white font-semibold">Total Amount</h1>
+              <div className="mt-3 flex flex-col items-center justify-between text-xl text-white">
+                <h2>{Cart.length} books</h2>
+                <h2>${Total.toFixed(2)}</h2>
+              </div>
+              <button 
+                className="mt-4 text-white text-xl font-semibold rounded-lg py-2 px-4 bg-orange-400 hover:bg-orange-500 shadow-md transition duration-200"
+                onClick={PlaceOrder}
+              >
+                Place Your Order
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </>
   );

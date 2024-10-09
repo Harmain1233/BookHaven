@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import image1 from '/images/imagebgcouch.jpg'; // Adjust path as needed
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { toast } from 'react-toastify'; 
 
 const SignUp = () => {
     const [formData, setFormData] = useState({
@@ -21,19 +22,19 @@ const SignUp = () => {
         e.preventDefault(); // Prevents the form from refreshing the page
         try {
             if (formData.username === "" || formData.password === "" || formData.email === "") {
-                alert("All Fields Are Required");
+                toast.error("All Fields Are Required"); 
             } else {
                 const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/sign-up`, formData);
-                alert(response.data.message);
+                toast.success(response.data.message); 
                 navigate("/LogIn");
             }
         } catch (error) {
             if (error.response) {
-                alert(error.response.data.message);
+                toast.error(error.response.data.message); 
             } else if (error.request) {
-                alert("No response from the server. Please try again later.");
+                toast.error("No response from the server. Please try again later."); 
             } else {
-                alert(`Error: ${error.message}`);
+                toast.error(`Error: ${error.message}`); 
             }
         }
     };

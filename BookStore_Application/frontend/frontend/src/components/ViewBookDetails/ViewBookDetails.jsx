@@ -5,30 +5,26 @@ import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { BookCover } from "book-cover-3d";
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../../store/auth.js";
-
-
+import { toast, ToastContainer } from 'react-toastify'; // Import toast and ToastContainer
+import 'react-toastify/dist/ReactToastify.css'; // Import toast CSS
 
 const ViewBookDetails = () => {
-  const [data, setData] = useState(null);  // Initialize data as null to avoid accessing undefined properties
+  const [data, setData] = useState(null);
   const { id } = useParams();
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const role = useSelector((state) => state.auth.role);
-  const dispatch = useDispatch();  // Add this to dispatch actions
-  console.log(isLoggedIn);
-  console.log(role);
+  const dispatch = useDispatch();
 
-  // New useEffect for rehydrating role from localStorage
   useEffect(() => {
     const storedRole = localStorage.getItem("role");
     const storedToken = localStorage.getItem("token");
     if (storedToken && storedRole) {
-      dispatch(authActions.login());  // Log in the user if there's a token
-      dispatch(authActions.changeRole(storedRole));  // Update role in Redux
+      dispatch(authActions.login());
+      dispatch(authActions.changeRole(storedRole));
     }
-  }, [dispatch]);  // Add dispatch to the dependency array
+  }, [dispatch]);
 
-  // Existing useEffect to fetch book data
   useEffect(() => {
     const fetch = async () => {
       try {
@@ -44,13 +40,12 @@ const ViewBookDetails = () => {
     if (id) {
       fetch();
     }
-  }, [id]);  // Add id to the dependency array
+  }, [id]);
 
   if (!data) {
     return <div>Loading...</div>;
   }
 
-  console.log(id);
   const headers = { 
     id: localStorage.getItem("id"), 
     authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -58,21 +53,31 @@ const ViewBookDetails = () => {
   };
 
   const handleFavorites = async () => {
-    const response = await axios.put(
-      `${import.meta.env.VITE_API_URL}/api/v1/add-book-to-favorite`, 
-      {}, 
-      { headers }
-    );
-    alert(response.data.message);
+    try {
+      const response = await axios.put(
+        `${import.meta.env.VITE_API_URL}/api/v1/add-book-to-favorite`, 
+        {}, 
+        { headers }
+      );
+      toast.success(response.data.message);
+    } catch (error) {
+      console.error("Error adding book to favorites:", error);
+      toast.error("Failed to add book to favorites.");
+    }
   };
 
   const handleCart = async () => {
-    const response = await axios.put(
-      `${import.meta.env.VITE_API_URL}/api/v1/add-to-cart`, 
-      {}, 
-      { headers }
-    );
-    alert(response.data.message);
+    try {
+      const response = await axios.put(
+        `${import.meta.env.VITE_API_URL}/api/v1/add-to-cart`, 
+        {}, 
+        { headers }
+      );
+      toast.success(response.data.message); 
+    } catch (error) {
+      console.error("Error adding book to cart:", error);
+      toast.error("Failed to add book to cart.");
+    }
   };
 
   return (
@@ -125,9 +130,9 @@ const ViewBookDetails = () => {
           </div>
         )}
       </div>
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} closeOnClick pauseOnHover draggable theme="colored" />
     </div>
   );
 };
 
 export default ViewBookDetails;
-
