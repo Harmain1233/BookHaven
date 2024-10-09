@@ -34,8 +34,7 @@ Check out the live version of the application: [bookhaven-frontend.onrender.com]
 - **Bcrypt** (Password hashing)
 
 ### Deployment:
-- **Frontend**: Deployed on [Netlify](https://www.netlify.com/)
-- **Backend**: Deployed on [Vercel](https://vercel.com/)
+- **Frontend and Backend**: Deployed on [Render](https://render.com/)
 
 ## Getting Started
 
@@ -76,13 +75,13 @@ Ensure you have the following installed on your machine:
 
 2. **Start the server**:
    ```bash
-   cd server
-   npm start
+   cd backend
+   node app.js
    ```
 
 3. **Start the frontend**:
    ```bash
-   cd client
+   cd frontend
    npm run dev
    ```
 
