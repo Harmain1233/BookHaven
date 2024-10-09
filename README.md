@@ -59,13 +59,13 @@ Ensure you have the following installed on your machine:
 
 3. Install server dependencies:
    ```bash
-   cd server
+   cd backend
    npm install
    ```
 
 4. Install client dependencies:
    ```bash
-   cd client
+   cd frontend
    npm install
    ```
 
